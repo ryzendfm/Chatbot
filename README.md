@@ -26,7 +26,7 @@ we have developed two models one  which runs locally and one that runs on a onli
   _AI models used in online mode_
   1) GPT 3.5 (online model)
 
- # NLP-used
+ # NLP's-used
   1) T5: Text-to-Text Transfer Transformer
   2) Llama (Large Language Model Meta AI)
   3) coqui_tts
