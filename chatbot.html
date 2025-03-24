@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="final.css">
+</head>
+
+<body>
+    <section>
+        <video autoplay muted loop id="v1">
+            <source src="images/cat blue.mp4" type="video/mp4">
+        </video>
+
+        <nav>
+            <div>
+                <h1 class="content"><b>BRAIN <span>AI</span></b></h1>
+            </div>
+            <button class="btn" onclick="toggleDialogue(event)"><b>MORE INFO</b></button>
+        </nav>
+        <div class="bg">
+            <h1 class="des">
+               <b> It's a chatbot created by us to deliver answers for domain-specific FAQs in an easy-to-understand manner.  
+               
+                Designed for accuracy and efficiency, it dynamically retrieves structured data and recognizes relationships to provide insightful responses.  
+            
+                With a focus on both privacy and performance, it offers flexibility through offline and online modes. Whether running locally or on the cloud, it ensures seamless interaction while adapting to user needs.</b>
+            </h1>
+        </div>
+        <div class="dialogue-box" id="dialogue">
+            <span class="close-btn" onclick="toggleDialogue(event)">&times;</span>
+            <p class="para">
+                <span style="color: red;"><b>Brain.AI</b></span> <b>Chatbot provides accurate and context-aware responses for domain-specific FAQs by leveraging structured data retrieval and relationship recognition.  </b>
+                <br><br>
+               <b> It is available in two versions: an <span style="color: red;">offline model <span style="color:black;">and</span> an online model</span>. The <span style="color:red;">offline version</span> runs locally, ensuring privacy, security, and customization without internet dependency. It provides full control over various parameters and utilizes a vast dataset with over 7 billion data points. The <span style="color: red;">online version</span>, on the other hand, is cloud-based, offering faster performance and scalability.</b>  
+                <br><br>
+                <b>The chatbot is powered by <span style="color: red;">Oobabooga</span>, which enhances LLM performance. It integrates advanced models such as Yarn-Mistral-7B, Llama-3-Nephilim, and DeepSeek Rt-Distill-Qwen-7B. Additionally, it employs cutting-edge NLP technologies like T5 for text transformation, Sileron and Coqui for text-to-speech, and Whisper-STT for speech recognition.</b>
+
+                <br><br>
+                <span style="color: rgb(255, 0, 34); font-size: 20px;"><b>MORE DETAILS:</b></span>  
+    <ul class="link-list">
+        <li><a class="link" href="https://github.com/oobabooga/text-generation-webui" target="_blank">Oobabooga Text Generation WebUI</a></li>
+        <li><a class="link" href="https://www.chatbase.co/" target="_blank">Chatbase</a></li>
+        <li><a class="link" href="https://huggingface.co/" target="_blank">Hugging Face</a></li>
+    </ul>
+        
+        </div>
+
+        <div class="chat-button" id="chatButton">
+            <i class="fas fa-comment"></i>
+        </div>
+        <div class="iframe-container" id="chatIframe">
+            <iframe id="myIframe" src="https://www.chatbase.co/chatbot-iframe/FVXO1ozXfSDywY0qLBZOl/"></iframe>
+        </div>
+        <script>
+            document.getElementById("chatButton").addEventListener("click", function () {
+                let chatIframe = document.getElementById("chatIframe");
+                chatIframe.classList.toggle("active");
+            });
+        </script>
+    </section>
+    <script>
+        function toggleDialogue(event) {
+    event.stopPropagation();
+    var box = document.getElementById("dialogue");
+    var video = document.getElementById("v1");
+    var videoContent = document.querySelector("nav");
+    var bgContent = document.querySelector(".bg");
+    var desContent = document.querySelector(".des");
+    if (box.classList.contains("show")) {
+        box.classList.remove("show");
+        setTimeout(() => {
+            box.style.display = "none";
+            video.classList.remove("video-blur");
+            videoContent.classList.remove("video-content-blur");
+            bgContent.classList.remove("blur-effect");
+            desContent.classList.remove("blur-effect");
+        }, 300);
+    } else {
+        box.style.display = "block";
+        setTimeout(() => box.classList.add("show"), 100);
+        video.classList.add("video-blur");
+        videoContent.classList.add("video-content-blur");
+        bgContent.classList.add("blur-effect");
+        desContent.classList.add("blur-effect");
+        updateTime();
+    }
+}
+    </script>
+</body>
+</html>
